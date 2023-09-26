@@ -24,6 +24,16 @@ https://cellxgene.cziscience.com/collections/8191c283-0816-424b-9b61-c3e1d6258a7
 sub-cluster downloaded from https://zenodo.org/record/7098004#.Y0P_LC0RoeY
 
 
-
+|             | # of cell (*1000, MI) | # of cell (*1000, A&K) | # of peaks (MI, not cell type specific) | # of peaks (A&K, not cell type specific) | # of overlaps (not cell type specific) |
+|-------------|-----------------------|------------------------|-----------------------------------------|------------------------------------------|----------------------------------------|
+| Total       | 46.2                  | 26.09                  |                                         |                                          |                                        |
+| vCMs        | 22                    | 9.4                    | 182,116                                 | 150,000                                  | 140,289                                |
+| fibroblasts | 7                     | 5.4                    | 173,843                                 | 150,000                                  | 129,347                                |
+| endothelial | 7                     | 5.4                    | 87,364                                  | 120,662                                  | 85,426                                 |
+| myeloid     | 4.5                   | 1.6                    | 83,560                                  | 98,167                                   | 13,303                                 |
+| pericytes   | 3.5                   | 3.0                    | 138,683                                 | 109,447                                  | 101,936                                |
+| lymphoid    | 1.2                   | 0.5                    | 111,685                                 | 44,995                                   | 45,286                                 |
+| vSMCs       | 0.6                   | 0.35                   | 94,685                                  | 44,997                                   | 46,683                                 |
+| neuronal    | 0.4                   | 0.44                   | 91,725                                  | 55,483                                   | 49,272                                 |
 
 

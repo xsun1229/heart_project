@@ -1,0 +1,29 @@
+---
+title: "Data Overview"
+author: "XSun"
+date: "2023-09-25"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+# Introduction
+
+We compare some new ATAC-seq data sets with our previous data here. 
+
+
+# MI
+
+Spatial multi-omic map of human myocardial infarction
+
+Kuppe, C., Ramirez Flores, R.O., Li, Z. et al. Spatial multi-omic map of human myocardial infarction. Nature 608, 766–777 (2022). https://doi.org/10.1038/s41586-022-05060-x
+
+downloaded from 
+https://cellxgene.cziscience.com/collections/8191c283-0816-424b-9b61-c3e1d6258a77
+
+sub-cluster downloaded from https://zenodo.org/record/7098004#.Y0P_LC0RoeY
+
+
+
+
+

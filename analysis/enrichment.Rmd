@@ -1,0 +1,50 @@
+---
+title: "Enrichment"
+author: "XSun"
+date: "2023-09-25"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+```{r, echo = FALSE, message=FALSE, warning=FALSE}
+suppressMessages(library(ComplexHeatmap))
+suppressMessages(library(ggplot2))
+```
+
+# Introduction
+
+We compute the enrichment of some GWAS variants using TORUS and S-LDSC here.
+
+
+# MI
+
+## TORUS results
+
+```{r echo=F, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=10}
+
+load("/project2/gca/xsun/heart_proj/1.MI_atac/1.enrichment/results/torus_results_workspace.RData")
+
+draw(map1, annotation_legend_list = lgd_list)
+
+```
+
+
+## S-LDSC
+
+```{r echo=F, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=20}
+
+source("/project2/gca/xsun/heart_proj/1.MI_atac/1.enrichment/0.funs.R")
+load("/project2/gca/xsun/heart_proj/1.MI_atac/1.enrichment/results/ldsc.rdata")
+
+annot_list <- c("Cardiomyocyte","Endothelial","Fibroblast","Lymphoid","Myeloid","Neuronal","Pericyte","vSMCs")
+trait_name_list <- c("BMI","CAD","DiastolicBP","Height","IBD","QRS","RA","SystolicBP","aFib","asthma","heart_failure","heart_rate","scz")
+
+DT::datatable(format(result_sLDSC[,1:7], digits = 2), options = list(scrollX = TRUE, keys = TRUE, pageLength = length(annot_list)),rownames = F)
+
+ggplot_enrichment(result_sLDSC, title = "", xlim = c(0,50))
+
+ggplot_heritability(result_sLDSC)
+
+
+```

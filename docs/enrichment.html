@@ -372,7 +372,7 @@ div.tocify {
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
 <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
+workflowr <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span>
 </button>
 </p>
@@ -383,8 +383,8 @@ aria-hidden="true"></span>
 </li>
 <li>
 <a data-toggle="tab" href="#checks"> Checks <span
-class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> </a>
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -393,13 +393,13 @@ aria-hidden="true"></span> </a>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2023-09-25
+<strong>Last updated:</strong> 2023-09-26
 </p>
 <p>
 <strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
 <span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> 1
+aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong> <code>heart_project/</code> <span
@@ -422,21 +422,18 @@ versions</em> tab lists the development history.
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges">
-<span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted
-changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
+</a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges"
+<div id="strongRMarkdownfilestronguptodate"
 class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown is untracked by Git. To know which version of the R
-Markdown file created these results, you’ll want to first commit it to
-the Git repo. If you’re still working on the analysis, you can ignore
-this warning. When you’re finished, you can run
-<code>wflow_publish</code> to commit the R Markdown file and build the
-HTML.</p>
+<p>Great! Since the R Markdown file has been committed to the Git
+repository, you know the exact version of the code that produced these
+results.</p>
 </div>
 </div>
 </div>
@@ -527,13 +524,13 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong1f0eecc">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong82cd4b8">
 <span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>Repository version:</strong> 1f0eecc
+aria-hidden="true"></span> <strong>Repository version:</strong> 82cd4b8
 </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrong1f0eecc"
+<div id="strongRepositoryversionstrong82cd4b8"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -542,7 +539,7 @@ and connecting the code version to the results is critical for
 reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version 1f0eecc.
+The results in this page were generated with repository version 82cd4b8.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -556,13 +553,7 @@ depends on. Below is the status of the Git repository when the results
 were generated:
 </p>
 <pre><code>
-Untracked files:
-    Untracked:  analysis/data_overview.Rmd
-    Untracked:  analysis/enrichment.Rmd
-
-Unstaged changes:
-    Modified:   analysis/index.Rmd
-
+working directory clean
 </code></pre>
 <p>
 Note that any generated files, e.g. HTML, png, CSS, etc., are not
@@ -576,10 +567,74 @@ have uncommitted changes.
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
+
 <p>
-There are no past versions. Publish this analysis with
-<code>wflow_publish()</code> to start tracking its development.
+These are the previous versions of the repository in which changes were
+made to the R Markdown (<code>analysis/enrichment.Rmd</code>) and HTML
+(<code>docs/enrichment.html</code>) files. If you’ve configured a remote
+Git repository (see <code>?wflow_git_remote</code>), click on the
+hyperlinks in the table below to view the files as they were in that
+past version.
 </p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+82cd4b8
+</td>
+<td>
+XSun
+</td>
+<td>
+2023-09-26
+</td>
+<td>
+wflow_publish(".")
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+82cd4b8
+</td>
+<td>
+XSun
+</td>
+<td>
+2023-09-26
+</td>
+<td>
+wflow_publish(".")
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 <hr>
 </div>
 </div>
@@ -594,12 +649,124 @@ S-LDSC here.</p>
 <div id="torus-results" class="section level2">
 <h2>TORUS results</h2>
 <p><img src="figure/enrichment.Rmd/unnamed-chunk-2-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-2-1">
+Past versions of unnamed-chunk-2-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-2-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+82cd4b8
+</td>
+<td>
+XSun
+</td>
+<td>
+2023-09-26
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="s-ldsc" class="section level2">
 <h2>S-LDSC</h2>
 <div id="htmlwidget-bdfcfc4331150dc07163" style="width:100%;height:auto;" class="datatables html-widget"></div>
 <script type="application/json" data-for="htmlwidget-bdfcfc4331150dc07163">{"x":{"filter":"none","vertical":false,"data":[["BMI","BMI","BMI","BMI","BMI","BMI","BMI","BMI","CAD","CAD","CAD","CAD","CAD","CAD","CAD","CAD","DiastolicBP","DiastolicBP","DiastolicBP","DiastolicBP","DiastolicBP","DiastolicBP","DiastolicBP","DiastolicBP","Height","Height","Height","Height","Height","Height","Height","Height","IBD","IBD","IBD","IBD","IBD","IBD","IBD","IBD","QRS","QRS","QRS","QRS","QRS","QRS","QRS","QRS","RA","RA","RA","RA","RA","RA","RA","RA","SystolicBP","SystolicBP","SystolicBP","SystolicBP","SystolicBP","SystolicBP","SystolicBP","SystolicBP","aFib","aFib","aFib","aFib","aFib","aFib","aFib","aFib","asthma","asthma","asthma","asthma","asthma","asthma","asthma","asthma","heart_failure","heart_failure","heart_failure","heart_failure","heart_failure","heart_failure","heart_failure","heart_failure","heart_rate","heart_rate","heart_rate","heart_rate","heart_rate","heart_rate","heart_rate","heart_rate","scz","scz","scz","scz","scz","scz","scz","scz"],["Cardiomyocyte","Endothelial","Fibroblast","Lymphoid","Myeloid","Neuronal","Pericyte","vSMCs","Cardiomyocyte","Endothelial","Fibroblast","Lymphoid","Myeloid","Neuronal","Pericyte","vSMCs","Cardiomyocyte","Endothelial","Fibroblast","Lymphoid","Myeloid","Neuronal","Pericyte","vSMCs","Cardiomyocyte","Endothelial","Fibroblast","Lymphoid","Myeloid","Neuronal","Pericyte","vSMCs","Cardiomyocyte","Endothelial","Fibroblast","Lymphoid","Myeloid","Neuronal","Pericyte","vSMCs","Cardiomyocyte","Endothelial","Fibroblast","Lymphoid","Myeloid","Neuronal","Pericyte","vSMCs","Cardiomyocyte","Endothelial","Fibroblast","Lymphoid","Myeloid","Neuronal","Pericyte","vSMCs","Cardiomyocyte","Endothelial","Fibroblast","Lymphoid","Myeloid","Neuronal","Pericyte","vSMCs","Cardiomyocyte","Endothelial","Fibroblast","Lymphoid","Myeloid","Neuronal","Pericyte","vSMCs","Cardiomyocyte","Endothelial","Fibroblast","Lymphoid","Myeloid","Neuronal","Pericyte","vSMCs","Cardiomyocyte","Endothelial","Fibroblast","Lymphoid","Myeloid","Neuronal","Pericyte","vSMCs","Cardiomyocyte","Endothelial","Fibroblast","Lymphoid","Myeloid","Neuronal","Pericyte","vSMCs","Cardiomyocyte","Endothelial","Fibroblast","Lymphoid","Myeloid","Neuronal","Pericyte","vSMCs"],["0.030","0.015","0.028","0.018","0.014","0.015","0.023","0.015","0.030","0.015","0.028","0.018","0.014","0.015","0.023","0.015","0.030","0.015","0.028","0.018","0.014","0.015","0.023","0.015","0.030","0.015","0.028","0.018","0.014","0.015","0.023","0.015","0.030","0.015","0.028","0.018","0.014","0.015","0.023","0.015","0.030","0.015","0.028","0.018","0.014","0.015","0.023","0.015","0.030","0.015","0.028","0.018","0.014","0.015","0.023","0.015","0.030","0.015","0.028","0.018","0.014","0.015","0.023","0.015","0.030","0.015","0.028","0.018","0.014","0.015","0.023","0.015","0.030","0.015","0.028","0.018","0.014","0.015","0.023","0.015","0.030","0.015","0.028","0.018","0.014","0.015","0.023","0.015","0.030","0.015","0.028","0.018","0.014","0.015","0.023","0.015","0.030","0.015","0.028","0.018","0.014","0.015","0.023","0.015"],[" 0.07381"," 0.02178"," 0.05324"," 0.03450"," 0.01816"," 0.04003"," 0.04856"," 0.04587"," 0.13585"," 0.15892"," 0.22746"," 0.06227"," 0.08714"," 0.13972"," 0.18390"," 0.16719"," 0.19814"," 0.19355"," 0.23535"," 0.13163"," 0.07159"," 0.15891"," 0.27959"," 0.23882"," 0.15984"," 0.09822"," 0.29621"," 0.11853"," 0.06356"," 0.17061"," 0.19415"," 0.16078","-0.00865","-0.00137"," 0.13209"," 0.05532"," 0.01516"," 0.07487","-0.05704"," 0.00772"," 0.75852"," 0.27911"," 0.34146"," 0.17581"," 0.03349"," 0.14126"," 0.32832"," 0.39134","-0.04419","-0.08657"," 0.05590","-0.06566"," 0.07979"," 0.10629","-0.05340"," 0.04984"," 0.19136"," 0.18383"," 0.22825"," 0.12446"," 0.07143"," 0.14374"," 0.25394"," 0.22760"," 0.36669"," 0.01830"," 0.15693"," 0.03444"," 0.00512"," 0.11313"," 0.15592"," 0.14017"," 0.29188"," 0.17948"," 0.24411"," 0.20812","-0.05129"," 0.22596"," 0.25190"," 0.25475"," 0.01249","-0.15724"," 0.07452"," 0.06728"," 0.04467","-0.14394","-0.09064","-0.00061"," 0.38574"," 0.16064"," 0.27048"," 0.11886"," 0.12575"," 0.17182"," 0.21178"," 0.17970"," 0.07370"," 0.01802"," 0.02656"," 0.03288"," 0.01629"," 0.02602"," 0.04938"," 0.04004"],["0.0118","0.0098","0.0125","0.0104","0.0094","0.0117","0.0105","0.0105","0.0387","0.0344","0.0409","0.0271","0.0349","0.0297","0.0393","0.0344","0.0271","0.0230","0.0287","0.0236","0.0169","0.0241","0.0279","0.0247","0.0236","0.0160","0.0254","0.0177","0.0160","0.0214","0.0209","0.0199","0.1409","0.1292","0.1866","0.1607","0.1450","0.1478","0.1574","0.1465","0.5102","0.2321","0.3068","0.1377","0.1517","0.1840","0.2541","0.2888","0.1256","0.0972","0.1119","0.0983","0.0941","0.1164","0.1003","0.0950","0.0267","0.0240","0.0271","0.0282","0.0168","0.0212","0.0313","0.0267","0.0491","0.0323","0.0726","0.0312","0.0370","0.0514","0.0636","0.0694","0.1439","0.1199","0.1455","0.1246","0.1048","0.1316","0.1396","0.1439","0.3008","0.3013","0.3139","0.2707","0.2872","0.3085","0.2811","0.2849","0.0880","0.0492","0.0858","0.0477","0.0474","0.0614","0.0643","0.0606","0.0177","0.0124","0.0172","0.0132","0.0143","0.0149","0.0180","0.0187"],["  2.452","  1.501","  1.872","  1.886","  1.306","  2.728","  2.141","  2.975","  4.513"," 10.955","  7.999","  3.405","  6.264","  9.521","  8.109"," 10.846","  6.582"," 13.343","  8.277","  7.198","  5.147"," 10.829"," 12.329"," 15.492","  5.310","  6.771"," 10.417","  6.481","  4.569"," 11.627","  8.561"," 10.430"," -0.287"," -0.095","  4.645","  3.025","  1.090","  5.102"," -2.515","  0.501"," 25.197"," 19.241"," 12.009","  9.614","  2.408","  9.626"," 14.478"," 25.386"," -1.468"," -5.968","  1.966"," -3.591","  5.736","  7.244"," -2.355","  3.233","  6.357"," 12.672","  8.027","  6.806","  5.135","  9.796"," 11.198"," 14.764"," 12.181","  1.261","  5.519","  1.883","  0.368","  7.709","  6.875","  9.093","  9.696"," 12.373","  8.585"," 11.381"," -3.687"," 15.399"," 11.108"," 16.525","  0.415","-10.839","  2.621","  3.679","  3.211"," -9.809"," -3.997"," -0.039"," 12.814"," 11.074","  9.512","  6.500","  9.039"," 11.709","  9.338"," 11.657","  2.448","  1.242","  0.934","  1.798","  1.171","  1.773","  2.177","  2.597"],[" 0.39"," 0.67"," 0.44"," 0.57"," 0.67"," 0.79"," 0.46"," 0.68"," 1.29"," 2.37"," 1.44"," 1.48"," 2.51"," 2.03"," 1.73"," 2.23"," 0.90"," 1.59"," 1.01"," 1.29"," 1.21"," 1.64"," 1.23"," 1.61"," 0.78"," 1.10"," 0.89"," 0.97"," 1.15"," 1.46"," 0.92"," 1.29"," 4.68"," 8.91"," 6.56"," 8.79","10.42","10.07"," 6.94"," 9.50","16.95","16.00","10.79"," 7.53","10.91","12.54","11.20","18.74"," 4.17"," 6.70"," 3.94"," 5.38"," 6.76"," 7.93"," 4.42"," 6.16"," 0.89"," 1.66"," 0.95"," 1.54"," 1.21"," 1.45"," 1.38"," 1.73"," 1.63"," 2.23"," 2.55"," 1.71"," 2.66"," 3.50"," 2.80"," 4.50"," 4.78"," 8.26"," 5.12"," 6.81"," 7.53"," 8.97"," 6.16"," 9.33"," 9.99","20.77","11.04","14.80","20.65","21.02","12.40","18.48"," 2.92"," 3.39"," 3.02"," 2.61"," 3.41"," 4.19"," 2.83"," 3.93"," 0.59"," 0.86"," 0.60"," 0.72"," 1.03"," 1.01"," 0.79"," 1.22"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Disease<\/th>\n      <th>Category<\/th>\n      <th>Prop._SNPs<\/th>\n      <th>Prop._h2<\/th>\n      <th>Prop._h2_std_error<\/th>\n      <th>Enrichment<\/th>\n      <th>Enrichment_std_error<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"keys":true,"pageLength":8,"columnDefs":[],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
-<p><img src="figure/enrichment.Rmd/unnamed-chunk-3-2.png" width="1920" style="display: block; margin: auto;" /><img src="figure/enrichment.Rmd/unnamed-chunk-3-3.png" width="1920" style="display: block; margin: auto;" /></p>
+<p><img src="figure/enrichment.Rmd/unnamed-chunk-3-2.png" width="1920" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-3-2">
+Past versions of unnamed-chunk-3-2.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-3-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+82cd4b8
+</td>
+<td>
+XSun
+</td>
+<td>
+2023-09-26
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/enrichment.Rmd/unnamed-chunk-3-3.png" width="1920" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-3-3">
+Past versions of unnamed-chunk-3-3.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-3-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+82cd4b8
+</td>
+<td>
+XSun
+</td>
+<td>
+2023-09-26
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -617,7 +784,12 @@ Matrix products: default
 BLAS/LAPACK: /software/openblas-0.3.13-el7-x86_64/lib/libopenblas_haswellp-r0.3.13.so
 
 locale:
-[1] C
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 
 attached base packages:
 [1] parallel  grid      stats     graphics  grDevices utils     datasets 
@@ -625,33 +797,35 @@ attached base packages:
 
 other attached packages:
 [1] doParallel_1.0.17     iterators_1.0.14      foreach_1.5.2        
-[4] ggplot2_3.3.5         ComplexHeatmap_2.12.0
+[4] ggplot2_3.3.5         ComplexHeatmap_2.12.0 workflowr_1.7.0      
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.8.3        circlize_0.4.15     png_0.1-7          
- [4] assertthat_0.2.1    rprojroot_2.0.3     digest_0.6.29      
- [7] utf8_1.2.2          R6_2.5.1            stats4_4.2.0       
-[10] evaluate_0.15       highr_0.9           pillar_1.7.0       
-[13] GlobalOptions_0.1.2 rlang_1.0.5         rstudioapi_0.13    
-[16] jquerylib_0.1.4     S4Vectors_0.34.0    GetoptLong_1.0.5   
-[19] DT_0.22             rmarkdown_2.14      labeling_0.4.2     
-[22] stringr_1.4.0       htmlwidgets_1.5.4   munsell_0.5.0      
-[25] compiler_4.2.0      httpuv_1.6.5        xfun_0.30          
-[28] pkgconfig_2.0.3     BiocGenerics_0.42.0 shape_1.4.6        
-[31] htmltools_0.5.2     tidyselect_1.1.2    tibble_3.1.7       
-[34] workflowr_1.7.0     IRanges_2.30.0      codetools_0.2-18   
-[37] matrixStats_0.62.0  fansi_1.0.3         withr_2.5.0        
-[40] crayon_1.5.1        dplyr_1.0.9         later_1.3.0        
-[43] jsonlite_1.8.0      gtable_0.3.0        lifecycle_1.0.1    
-[46] DBI_1.1.2           git2r_0.30.1        magrittr_2.0.3     
-[49] scales_1.2.0        cli_3.3.0           stringi_1.7.6      
-[52] farver_2.1.0        fs_1.5.2            promises_1.2.0.1   
-[55] bslib_0.3.1         ellipsis_0.3.2      vctrs_0.4.1        
-[58] generics_0.1.2      rjson_0.2.21        RColorBrewer_1.1-3 
-[61] tools_4.2.0         glue_1.6.2          purrr_0.3.4        
-[64] crosstalk_1.2.0     fastmap_1.1.0       yaml_2.3.5         
-[67] clue_0.3-61         colorspace_2.0-3    cluster_2.1.3      
-[70] knitr_1.39          sass_0.4.1         </code></pre>
+ [1] Rcpp_1.0.8.3        circlize_0.4.15     getPass_0.2-2      
+ [4] png_0.1-7           ps_1.7.0            assertthat_0.2.1   
+ [7] rprojroot_2.0.3     digest_0.6.29       utf8_1.2.2         
+[10] R6_2.5.1            stats4_4.2.0        evaluate_0.15      
+[13] highr_0.9           httr_1.4.3          pillar_1.7.0       
+[16] GlobalOptions_0.1.2 rlang_1.0.5         rstudioapi_0.13    
+[19] whisker_0.4         callr_3.7.3         jquerylib_0.1.4    
+[22] S4Vectors_0.34.0    GetoptLong_1.0.5    DT_0.22            
+[25] rmarkdown_2.14      labeling_0.4.2      stringr_1.4.0      
+[28] htmlwidgets_1.5.4   munsell_0.5.0       compiler_4.2.0     
+[31] httpuv_1.6.5        xfun_0.30           pkgconfig_2.0.3    
+[34] BiocGenerics_0.42.0 shape_1.4.6         htmltools_0.5.2    
+[37] tidyselect_1.1.2    tibble_3.1.7        IRanges_2.30.0     
+[40] codetools_0.2-18    matrixStats_0.62.0  fansi_1.0.3        
+[43] withr_2.5.0         crayon_1.5.1        dplyr_1.0.9        
+[46] later_1.3.0         DBI_1.1.2           jsonlite_1.8.0     
+[49] gtable_0.3.0        lifecycle_1.0.1     git2r_0.30.1       
+[52] magrittr_2.0.3      scales_1.2.0        cli_3.3.0          
+[55] stringi_1.7.6       farver_2.1.0        fs_1.5.2           
+[58] promises_1.2.0.1    bslib_0.3.1         ellipsis_0.3.2     
+[61] vctrs_0.4.1         generics_0.1.2      rjson_0.2.21       
+[64] RColorBrewer_1.1-3  tools_4.2.0         glue_1.6.2         
+[67] purrr_0.3.4         crosstalk_1.2.0     processx_3.8.0     
+[70] fastmap_1.1.0       yaml_2.3.5          clue_0.3-61        
+[73] colorspace_2.0-3    cluster_2.1.3       knitr_1.39         
+[76] sass_0.4.1         </code></pre>
 </div>
 </div>
 </div>

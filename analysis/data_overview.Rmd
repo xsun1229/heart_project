@@ -7,6 +7,11 @@ editor_options:
   chunk_output_type: console
 ---
 
+```{r echo=F, message=FALSE, warning=FALSE}
+library(GenomicRanges)
+library(ggplot2)
+```
+
 # Introduction
 
 We compare some new ATAC-seq data sets with our previous data here. 
@@ -37,3 +42,104 @@ sub-cluster downloaded from https://zenodo.org/record/7098004#.Y0P_LC0RoeY
 | neuronal    | 0.4                   | 0.44                   | 91,725                                  | 55,483                                   | 49,272                                 |
 
 
+# CHD
+
+Integrated multi-omic characterization of congenital heart disease
+
+https://www.nature.com/articles/s41586-022-04989-3#data-availability
+
+Downloaded from https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE203273
+
+Bulk data
+
+|      | # of peaks |
+|------|------------|
+| cd14 | 666,618    |
+| nk   | 6,745,378  |
+| pcm1 | 166,035    |
+
+``` {r echo=F, message=FALSE, warning=FALSE,  fig.width=10}
+
+load("/project2/gca/xsun/heart_proj/data/CHD/atac/processed/cd14_gr_hg19.rdata")
+element_widths <- width(merged_bigwig_reduced)
+# Assuming element_widths is the vector you obtained earlier
+# Create a data frame for plotting
+data <- data.frame(widths = element_widths)
+
+# Create the histogram using ggplot2
+ggplot(data, aes(x = widths)) +
+  geom_histogram() +  # Adjust binwidth as needed
+  labs(x = "Peak Width", y = "Count") +
+  ggtitle("CD14")
+
+# Calculate the 90th percentile
+percentile_80 <- quantile(element_widths, 0.80)
+
+# Keep only the elements below the 90th percentile
+filtered_widths <- element_widths[element_widths < percentile_80]
+
+# Check the length of the filtered vector
+cat("Number of elements after removing the top 20%:", length(filtered_widths), "\n")
+
+# Create a histogram of the filtered element widths using ggplot2
+ggplot(data.frame(widths = filtered_widths), aes(x = widths)) +
+  geom_histogram() +  # Adjust binwidth as needed
+  labs(x = "Peak Width", y = "Count") +
+  ggtitle("CD14 (Excluding Top 20%)")
+
+
+load("/project2/gca/xsun/heart_proj/data/CHD/atac/processed/nk_gr_hg19.rdata")
+element_widths <- width(merged_bigwig_reduced)
+# Assuming element_widths is the vector you obtained earlier
+# Create a data frame for plotting
+data <- data.frame(widths = element_widths)
+
+# Create the histogram using ggplot2
+ggplot(data, aes(x = widths)) +
+  geom_histogram() +  # Adjust binwidth as needed
+  labs(x = "Peak Width", y = "Count") +
+  ggtitle("NK")
+
+# Calculate the 90th percentile
+percentile_80 <- quantile(element_widths, 0.80)
+
+# Keep only the elements below the 90th percentile
+filtered_widths <- element_widths[element_widths < percentile_80]
+
+# Check the length of the filtered vector
+cat("Number of elements after removing the top 20%:", length(filtered_widths), "\n")
+
+# Create a histogram of the filtered element widths using ggplot2
+ggplot(data.frame(widths = filtered_widths), aes(x = widths)) +
+  geom_histogram() +  # Adjust binwidth as needed
+  labs(x = "Peak Width", y = "Count") +
+  ggtitle("NK (Excluding Top 20%)")
+
+load("/project2/gca/xsun/heart_proj/data/CHD/atac/processed/pcm1_gr.rdata")
+element_widths <- width(merged_bigwig_reduced)
+# Assuming element_widths is the vector you obtained earlier
+# Create a data frame for plotting
+data <- data.frame(widths = element_widths)
+
+# Create the histogram using ggplot2
+ggplot(data, aes(x = widths)) +
+  geom_histogram() +  # Adjust binwidth as needed
+  labs(x = "Peak Width", y = "Count") +
+  ggtitle("PCM1")
+
+# Calculate the 90th percentile
+percentile_80 <- quantile(element_widths, 0.80)
+
+# Keep only the elements below the 90th percentile
+filtered_widths <- element_widths[element_widths < percentile_80]
+
+# Check the length of the filtered vector
+cat("Number of elements after removing the top 20%:", length(filtered_widths), "\n")
+
+# Create a histogram of the filtered element widths using ggplot2
+ggplot(data.frame(widths = filtered_widths), aes(x = widths)) +
+  geom_histogram() +  # Adjust binwidth as needed
+  labs(x = "Peak Width", y = "Count") +
+  ggtitle("PCM1 (Excluding Top 20%)")
+
+```

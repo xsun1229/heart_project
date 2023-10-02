@@ -28,6 +28,8 @@ https://cellxgene.cziscience.com/collections/8191c283-0816-424b-9b61-c3e1d6258a7
 
 sub-cluster downloaded from https://zenodo.org/record/7098004#.Y0P_LC0RoeY
 
+31 samples
+
 
 |             | # of cell (*1000, MI) | # of cell (*1000, A&K) | # of peaks (MI, not cell type specific) | # of peaks (A&K, not cell type specific) | # of overlaps (not cell type specific) |
 |-------------|-----------------------|------------------------|-----------------------------------------|------------------------------------------|----------------------------------------|
@@ -51,6 +53,8 @@ https://www.nature.com/articles/s41586-022-04989-3#data-availability
 Downloaded from https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE203273
 
 Bulk data
+
+42 samples
 
 |      | # of peaks |
 |------|------------|
@@ -143,3 +147,62 @@ ggplot(data.frame(widths = filtered_widths), aes(x = widths)) +
   ggtitle("PCM1 (Excluding Top 20%)")
 
 ```
+
+
+# Immune cells
+
+Landscape of stimulation-responsive chromatin across diverse human immune cells
+
+https://www.nature.com/articles/s41588-019-0505-9
+
+8 healthy donors
+
+collected by Jing Gu, storaged in /project2/xinhe/shared_data/AADCRC_lung/Caldero2019
+
+## re-grouped by major cell types
+
+| Cell types              | # of peaks | Cell types             | # of peaks | Cell types                   | # of peaks |
+|-------------------------|------------|------------------------|------------|------------------------------|------------|
+| Bcell_merge.bed         | 256235     | Bcell_rest.bed         | 206835     | Bcell_stimulated.bed         | 222088     |
+| CD4_T_merge.bed         | 337358     | CD4_T_rest.bed         | 227545     | CD4_T_stimulated.bed         | 314472     |
+| CD8_T_merge.bed         | 249173     | CD8_T_rest.bed         | 159600     | CD8_T_stimulated.bed         | 236933     |
+| Gamma_delta_T_merge.bed | 151743     | Gamma_delta_T_rest.bed | 103283     | Gamma_delta_T_stimulated.bed | 135191     |
+| Myeloid_merge.bed       | 301735     | Myeloid_rest.bed       | 276244     |                              |            |
+| NK_merge.bed            | 243451     | NK_rest.bed            | 218348     | NK_stimulated.bed            | 180543     |
+| T_cells_merge.bed       | 351149     |                        |            |                              |            |
+
+
+## smaller groups
+
+| rest                         |        | stimulated                   |        | differential peaks        |       |
+|------------------------------|--------|------------------------------|--------|---------------------------|-------|
+| Bcell_group.bed              | 206835 | Bcell_group.bed              | 222088 |                           |       |
+| Bulk_B.bed                   | 127405 | Bulk_B.bed                   | 140859 |                           |       |
+| CD4_T_group.bed              | 227545 | CD4_T_group.bed              | 314472 |                           |       |
+| CD8_T_group.bed              | 159600 | CD8_T_group.bed              | 236933 |                           |       |
+| CD8pos_T.bed                 | 134477 | CD8pos_T.bed                 | 135808 |                           |       |
+| Central_memory_CD8pos_T.bed  | 95884  | Central_memory_CD8pos_T.bed  | 148500 | Central_memory_CD8pos_T_U | 924   |
+| Effector_CD4pos_T.bed        | 128080 | Effector_CD4pos_T.bed        | 147309 | Effector_CD4pos_T_U       | 610   |
+| Effector_memory_CD8pos_T.bed | 98532  | Effector_memory_CD8pos_T.bed | 140786 |                           |       |
+| Follicular_T_Helper.bed      | 127264 | Follicular_T_Helper.bed      | 225183 |                           |       |
+| Gamma_delta_T.bed            | 103283 | Gamma_delta_T.bed            | 135191 |                           |       |
+| Immature_NK.bed              | 182210 |                              |        | Immature_NK_U             | 6832  |
+| Mature_NK.bed                | 136860 | Mature_NK.bed                | 180543 |                           |       |
+| Mem_B.bed                    | 137766 | Mem_B.bed                    | 189137 | Mem_B_U                   | 2803  |
+| Memory_NK.bed                | 137181 |                              |        |                           |       |
+| Memory_Teffs.bed             | 107882 | Memory_Teffs.bed             | 157724 | Memory_Teffs_U            | 200   |
+| Memory_Tregs.bed             | 102609 | Memory_Tregs.bed             | 161057 |                           |       |
+| Monocytes.bed                | 226420 | Monocytes.bed                | 211106 | Monocytes_U               | 38354 |
+| Myeloid_DCs.bed              | 140685 |                              |        |                           |       |
+| Myeloid_group.bed            | 276244 | Myeloid_group.bed            | 211106 |                           |       |
+| NK_group.bed                 | 218348 | NK_group.bed                 | 180543 |                           |       |
+| Naive_B.bed                  | 139387 | Naive_B.bed                  | 154570 | Naive_B_U                 | 423   |
+| Naive_CD8_T.bed              | 96921  | Naive_CD8_T.bed              | 196974 | Naive_CD8_T_U             | 5029  |
+| Naive_Teffs.bed              | 128112 | Naive_Teffs.bed              | 165885 | Naive_Teffs_U             | 2405  |
+| Naive_Tregs.bed              | 137242 | Naive_Tregs.bed              | 174947 | Naive_Tregs_U             | 140   |
+| Plasmablasts.bed             | 162676 |                              |        |                           |       |
+| Regulatory_T.bed             | 121420 | Regulatory_T.bed             | 167853 |                           |       |
+| Th17_precursors.bed          | 106904 | Th17_precursors.bed          | 158520 |                           |       |
+| Th1_precursors.bed           | 110248 | Th1_precursors.bed           | 177126 |                           |       |
+| Th2_precursors.bed           | 120143 | Th2_precursors.bed           | 173315 |                           |       |
+| pDCs.bed                     | 143856 |                              |        | pDCs_U                    | 19308 |

@@ -44,6 +44,55 @@ sub-cluster downloaded from https://zenodo.org/record/7098004#.Y0P_LC0RoeY
 | neuronal    | 0.4                   | 0.44                   | 91,725                                  | 55,483                                   | 49,272                                 |
 
 
+
+Unique peaks from Kuppe's data
+
+```{r echo=F, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=10}
+
+library(GenomicRanges)
+library(rtracklayer)
+library(ggplot2)
+library(cowplot) 
+
+celltype_ak<- c("Cardiomyocyte","Smooth.Muscle","Pericyte","Endothelial","Fibroblast","Neuronal", "Lymphoid","Myeloid")
+celltype_mi<- c("Cardiomyocyte","vSMCs","Pericyte","Endothelial","Fibroblast","Neuronal", "Lymphoid","Myeloid")
+
+folder_save <- "./unique_hg19/"
+system(sprintf("mkdir -p %s", folder_save))
+
+folder_ak <- "/project2/gca/xsun/heart_proj/data/ak/peaks_hg19/"
+folder_mi <- "/project2/gca/xsun/heart_proj/data/MI/peaks_hg19/"
+
+# Initialize a list to store the plots
+plots_list <- list()
+
+# Set up the grid layout
+layout(matrix(1:6, ncol = 3))
+
+for (i in seq_along(celltype_ak)) {
+  file_ak <- paste0(folder_ak, celltype_ak[i], "_hg19.bed")
+  file_mi <- paste0(folder_mi, celltype_mi[i], "_hg19.bed")
+  
+  grange_ak <- import(file_ak)
+  grange_mi <- import(file_mi)
+  
+  unique_mi <- setdiff(grange_mi, grange_ak)
+  width <- width(unique_mi)
+  
+  # Create a histogram plot
+  p <- ggplot(data = as.data.frame(width), aes(x = width)) +
+    geom_histogram( color = "blue", bins = 30)  +
+    labs(title = paste0("width of the unique peaks, ",celltype_ak[i]))  # Use celltype_ak as the plot title
+  
+  # Add the plot to the list
+  plots_list[[i]] <- p
+}
+
+# Plot the grid of histograms
+plot_grid(plotlist = plots_list, ncol = 3)
+```
+
+
 # CHD
 
 Integrated multi-omic characterization of congenital heart disease

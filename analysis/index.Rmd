@@ -12,3 +12,4 @@ editor_options:
 
 [Enrichment analysis](https://xsun1229.github.io/heart_project/enrichment.html)
 
+[Fast topics](https://xsun1229.github.io/heart_project/fasttopic.html)

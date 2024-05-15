@@ -1,0 +1,52 @@
+---
+title: "Running fast topics"
+author: "XSun"
+date: "2024-05-15"
+output:
+  workflowr::wflow_html:
+    code_folding: hide
+    toc: true
+---
+
+# Introduction
+
+We ran [fast topics](https://stephenslab.github.io/fastTopics/index.html) on fibroblast ATAC-seq 
+
+```{r}
+library(gridExtra)
+library(Matrix)
+```
+
+# The Count Matrix  
+
+```{r}
+load("/project/xinhe/xsun/heart_project/data/fib.acat.count.rdata")
+dim(counts)
+counts[1:5,1:5]
+mean(counts > 0)
+```
+
+# Results
+
+We varied the number of topics from 4 to 30.
+
+## Visualization
+
+```{r message=FALSE, fig.width=30, fig.height=25}
+load("/project/xinhe/xsun/heart_project/1.fast_topic/plots/visualization.rdata")
+grid.arrange(grobs = p, ncol = 4)
+```
+
+## Checking the liklihood
+
+```{r message=FALSE, fig.width=20, fig.height=20}
+load("/project/xinhe/xsun/heart_project/1.fast_topic/plots/liklihood.rdata")
+grid.arrange(grobs = p, ncol = 4)
+```
+
+## likelihood for each cell
+
+```{r message=FALSE, fig.width=20, fig.height=20}
+load("/project/xinhe/xsun/heart_project/1.fast_topic/plots/liklihood_dist.rdata")
+grid.arrange(grobs = p, ncol = 4)
+```

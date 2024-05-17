@@ -19,34 +19,99 @@ library(Matrix)
 
 # The Count Matrix  
 
-```{r}
+```{r visible-code, echo=T}
 load("/project/xinhe/xsun/heart_project/data/fib.acat.count.rdata")
+print("dim(count)")
 dim(counts)
-counts[1:5,1:5]
+print("counts[1:4,1:4]")
+counts[1:4,1:4]
+print("mean(counts > 0)")
 mean(counts > 0)
+
+row_sums <- rowSums(counts)
+zero_rows <- which(row_sums == 0)
+sprintf("the number of cells having 0 for all peaks = %s", length(zero_rows))
+
+col_sums <- colSums(counts)
+zero_cols <- which(col_sums == 0)
+sprintf("the number of peaks having 0 for all cells = %s", length(zero_cols))
 ```
 
-# Results
+# Results -- cells with 0 peaks removed
 
-We varied the number of topics from 4 to 30.
+We varied the number of topics from 4 to 16.
 
 ## Visualization
 
-```{r message=FALSE, fig.width=30, fig.height=25}
+```{r message=FALSE, fig.width=30, fig.height=30}
+load("/project/xinhe/xsun/heart_project/1.fast_topic/plots/visualization.0cellremoved.rdata")
+grid.arrange(grobs = p, ncol = 4)
+```
+
+## Checking the liklihood
+
+```{r message=FALSE, fig.width=25, fig.height=25}
+load("/project/xinhe/xsun/heart_project/1.fast_topic/plots/liklihood.0cellremoved.rdata")
+grid.arrange(grobs = p, ncol = 4)
+```
+
+## likelihood for each cell
+
+```{r message=FALSE, fig.width=25, fig.height=25}
+load("/project/xinhe/xsun/heart_project/1.fast_topic/plots/liklihood_dist.0cellremoved.rdata")
+grid.arrange(grobs = p, ncol = 4)
+```
+
+
+
+# Results -- cells with 0 peaks removed, counts binarized
+
+We varied the number of topics from 4 to 16.
+
+## Visualization
+
+```{r message=FALSE, fig.width=30, fig.height=30}
+load("/project/xinhe/xsun/heart_project/1.fast_topic/plots/visualization.0cellremoved.bin.rdata")
+grid.arrange(grobs = p, ncol = 4)
+```
+
+## Checking the liklihood
+
+```{r message=FALSE, fig.width=25, fig.height=25}
+load("/project/xinhe/xsun/heart_project/1.fast_topic/plots/liklihood.0cellremoved.bin.rdata")
+grid.arrange(grobs = p, ncol = 4)
+```
+
+## likelihood for each cell
+
+```{r message=FALSE, fig.width=25, fig.height=25}
+load("/project/xinhe/xsun/heart_project/1.fast_topic/plots/liklihood_dist.0cellremoved.rdata")
+grid.arrange(grobs = p, ncol = 4)
+```
+
+
+
+# Results -- using raw counts
+
+We varied the number of topics from 4 to 16.
+
+## Visualization
+
+```{r message=FALSE, fig.width=30, fig.height=30}
 load("/project/xinhe/xsun/heart_project/1.fast_topic/plots/visualization.rdata")
 grid.arrange(grobs = p, ncol = 4)
 ```
 
 ## Checking the liklihood
 
-```{r message=FALSE, fig.width=20, fig.height=20}
+```{r message=FALSE, fig.width=25, fig.height=25}
 load("/project/xinhe/xsun/heart_project/1.fast_topic/plots/liklihood.rdata")
 grid.arrange(grobs = p, ncol = 4)
 ```
 
 ## likelihood for each cell
 
-```{r message=FALSE, fig.width=20, fig.height=20}
+```{r message=FALSE, fig.width=25, fig.height=25}
 load("/project/xinhe/xsun/heart_project/1.fast_topic/plots/liklihood_dist.rdata")
 grid.arrange(grobs = p, ncol = 4)
 ```

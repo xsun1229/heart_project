@@ -37,6 +37,32 @@ zero_cols <- which(col_sums == 0)
 sprintf("the number of peaks having 0 for all cells = %s", length(zero_cols))
 ```
 
+# Results -- cells with 0 peaks removed, counts binarized
+
+We varied the number of topics from 4 to 16.
+
+## Visualization
+
+```{r message=FALSE, fig.width=30, fig.height=30}
+load("/project/xinhe/xsun/heart_project/1.fast_topic/plots/visualization.0cellremoved.bin.rdata")
+grid.arrange(grobs = p, ncol = 4)
+```
+
+## Checking the liklihood
+
+```{r message=FALSE, fig.width=25, fig.height=25}
+load("/project/xinhe/xsun/heart_project/1.fast_topic/plots/liklihood.0cellremoved.bin.rdata")
+grid.arrange(grobs = p, ncol = 4)
+```
+
+## likelihood for each cell
+
+```{r message=FALSE, fig.width=25, fig.height=25}
+load("/project/xinhe/xsun/heart_project/1.fast_topic/plots/liklihood_dist.0cellremoved.rdata")
+grid.arrange(grobs = p, ncol = 4)
+```
+
+
 # Results -- cells with 0 peaks removed
 
 We varied the number of topics from 4 to 16.
@@ -62,32 +88,6 @@ load("/project/xinhe/xsun/heart_project/1.fast_topic/plots/liklihood_dist.0cellr
 grid.arrange(grobs = p, ncol = 4)
 ```
 
-
-
-# Results -- cells with 0 peaks removed, counts binarized
-
-We varied the number of topics from 4 to 16.
-
-## Visualization
-
-```{r message=FALSE, fig.width=30, fig.height=30}
-load("/project/xinhe/xsun/heart_project/1.fast_topic/plots/visualization.0cellremoved.bin.rdata")
-grid.arrange(grobs = p, ncol = 4)
-```
-
-## Checking the liklihood
-
-```{r message=FALSE, fig.width=25, fig.height=25}
-load("/project/xinhe/xsun/heart_project/1.fast_topic/plots/liklihood.0cellremoved.bin.rdata")
-grid.arrange(grobs = p, ncol = 4)
-```
-
-## likelihood for each cell
-
-```{r message=FALSE, fig.width=25, fig.height=25}
-load("/project/xinhe/xsun/heart_project/1.fast_topic/plots/liklihood_dist.0cellremoved.rdata")
-grid.arrange(grobs = p, ncol = 4)
-```
 
 
 

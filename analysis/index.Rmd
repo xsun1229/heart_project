@@ -8,8 +8,16 @@ editor_options:
   chunk_output_type: console
 ---
 
-[Data overview](https://xsun1229.github.io/heart_project/data_overview.html)
+# Data
 
-[Enrichment analysis](https://xsun1229.github.io/heart_project/enrichment.html)
+[link](https://xsun1229.github.io/heart_project/data_overview.html)
 
-[Fast topics](https://xsun1229.github.io/heart_project/fasttopic.html)
+# Enrichment analysis
+
+[link](https://xsun1229.github.io/heart_project/enrichment.html)
+
+# Using fast topics to combine signals
+
+[Running fast topics](https://xsun1229.github.io/heart_project/fasttopic_running.html)
+
+[Differential and pathway enrichment analysis](https://xsun1229.github.io/heart_project/fasttopic_diff_enrich.html)

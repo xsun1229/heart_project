@@ -30,38 +30,79 @@ mean(counts > 0)
 
 row_sums <- rowSums(counts)
 zero_rows <- which(row_sums == 0)
-sprintf("the number of cells having 0 for all peaks = %s", length(zero_rows))
+sprintf("the number of cells in which the peak counts were all zeros = %s", length(zero_rows))
 
 col_sums <- colSums(counts)
 zero_cols <- which(col_sums == 0)
-sprintf("the number of peaks having 0 for all cells = %s", length(zero_cols))
+sprintf("the number of peaks in which the cell counts were all zeros = %s", length(zero_cols))
+
+load("/project/xinhe/xsun/heart_project/data/fib.acat.count.binarized.0cellremoved.rdata")
+print("after removing the cells in which the peak counts were all zeros")
+print("mean(counts > 0)")
+mean(counts > 0)
+rsum <- rowSums(counts) 
+summary(rsum)
+hist(rsum,main = "# of peaks in each cell")
+rsum_1qu <- rsum[rsum < 7310]
+hist(rsum_1qu,main = "# of peaks in cells with less than 7310 peaks")
 ```
+
+# **Finalized Results** -- cells with less than 1000 peak accessibility removed, counts binarized
+
+We varied the number of topics from 4 to 16.
+
+## Running fast-topics
+
+### Visualization
+
+```{r message=FALSE, fig.width=30, fig.height=30}
+load("/project/xinhe/xsun/heart_project/1.fast_topic/plots/visualization.0cellremoved.1krm.rdata")
+grid.arrange(grobs = p, ncol = 4)
+```
+
+### Checking the liklihood
+
+```{r message=FALSE, fig.width=25, fig.height=25}
+load("/project/xinhe/xsun/heart_project/1.fast_topic/plots/liklihood.0cellremoved.1krm.rdata")
+grid.arrange(grobs = p, ncol = 4)
+```
+
+### likelihood for each cell
+
+```{r message=FALSE, fig.width=25, fig.height=25}
+load("/project/xinhe/xsun/heart_project/1.fast_topic/plots/liklihood_dist.0cellremoved.1krm.rdata")
+grid.arrange(grobs = p, ncol = 4)
+```
+
+
+
 
 # Results -- cells with 0 peaks removed, counts binarized
 
 We varied the number of topics from 4 to 16.
 
-## Visualization
+## Running fast-topics
+
+### Visualization
 
 ```{r message=FALSE, fig.width=30, fig.height=30}
 load("/project/xinhe/xsun/heart_project/1.fast_topic/plots/visualization.0cellremoved.bin.rdata")
 grid.arrange(grobs = p, ncol = 4)
 ```
 
-## Checking the liklihood
+### Checking the liklihood
 
 ```{r message=FALSE, fig.width=25, fig.height=25}
 load("/project/xinhe/xsun/heart_project/1.fast_topic/plots/liklihood.0cellremoved.bin.rdata")
 grid.arrange(grobs = p, ncol = 4)
 ```
 
-## likelihood for each cell
+### likelihood for each cell
 
 ```{r message=FALSE, fig.width=25, fig.height=25}
 load("/project/xinhe/xsun/heart_project/1.fast_topic/plots/liklihood_dist.0cellremoved.rdata")
 grid.arrange(grobs = p, ncol = 4)
 ```
-
 
 # Results -- cells with 0 peaks removed
 

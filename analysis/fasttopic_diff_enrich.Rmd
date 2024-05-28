@@ -1,0 +1,122 @@
+---
+title: "Differential and enrichment analysis"
+author: "XSun"
+date: "2024-05-28"
+output:
+  workflowr::wflow_html:
+    code_folding: hide
+    toc: true
+---
+
+# Introduction
+
+## Differential Analysis
+
+We did differential analysis for the topics from [k=10 and k=11](https://xsun1229.github.io/heart_project/fasttopic_running.html#Finalized_Results_–_cells_with_less_than_1000_peak_accessibility_removed,_counts_binarized). 
+
+The differential analysis was performed under default settings using the `fastTopics` package.
+
+```{r eval=F}
+de <- de_analysis(fit, counts, pseudocount = 0.1,
+                  control = list(ns = 1e4, nc = 10))
+```
+
+## Mapping ATAC-seq Peaks to Genes
+
+We mapped the peaks to the closest protein-coding genes using `EnsDb.Hsapiens.v86`.
+
+Peaks that are 500kb away from a gene were excluded in the enrichment analysis.
+
+```{r eval=F}
+closest_genes <- ClosestFeature(fib_atac, regions = granges(fib_atac))
+
+```
+
+```{r}
+load("/project/xinhe/xsun/heart_project/data/fib_nearest_genes_proteincoding.rdata")
+head(closest_genes)
+```
+
+## Pathway Enrichment Analysis
+
+The enrichment analysis was performed using the `WebGestaltR` package with the following function:
+
+```{r echo=TRUE, eval=FALSE}
+enrich_Res <- WebGestaltR(enrichMethod="ORA", organism="hsapiens",
+                          interestGene=genes_pass,
+                          referenceGene=baseline_genes,
+                          enrichDatabase="geneontology_Biological_Process",
+                          interestGeneType="genesymbol",
+                          referenceGeneType="genesymbol", isOutput=F)
+```                          
+
+Here, genes_pass are the genes passing a certain threshold, and baseline_genes are the genes included in our dataset.
+
+# Results
+
+## k=10
+
+### Differential analysis
+
+The topic 1 is likely to be the unique topic for myofib
+
+```{r}
+load("/project/xinhe/xsun/heart_project/1.fast_topic/results/fast_de_modified_k10.0cellremoved.1krm.rdata")
+load("/project/xinhe/xsun/heart_project/1.fast_topic/plots/volcano_plot_k10_topic1.rdata")
+print(volcano_plot)
+```
+
+### Pathway enrichment analysis
+
+We select genes of interests using a relaxed threshold: 
+
+lfsr_tp < 0.05 & z_tp > 5, lfc_tp >1
+
+The number of genes selected: 
+
+```{r}
+topic <- 1
+lfsr_tp <- de$lfsr[,topic]
+z_tp <- de$z[,topic]
+lfc_tp <- de$est[,topic]
+    
+index <- which(lfsr_tp < 0.05 & z_tp > 5, lfc_tp >1)
+genes_pass <- rownames(de$lfsr)[index]
+print(length(genes_pass))
+```
+
+There is no pathway enriched in this gene list
+
+## k=11
+
+### Differential analysis
+
+The topic 2 is likely to be the unique topic for myofib
+
+```{r}
+load("/project/xinhe/xsun/heart_project/1.fast_topic/results/fast_de_modified_k11.0cellremoved.1krm.rdata")
+load("/project/xinhe/xsun/heart_project/1.fast_topic/plots/volcano_plot_k11_topic2.rdata")
+print(volcano_plot)
+```
+
+### Pathway enrichment analysis
+
+We select genes of interests using a relaxed threshold: 
+
+lfsr_tp < 0.05 & z_tp > 5, lfc_tp >1
+
+The number of genes selected: 
+
+```{r}
+topic <- 2
+lfsr_tp <- de$lfsr[,topic]
+z_tp <- de$z[,topic]
+lfc_tp <- de$est[,topic]
+    
+index <- which(lfsr_tp < 0.05 & z_tp > 5, lfc_tp >1)
+genes_pass <- rownames(de$lfsr)[index]
+print(length(genes_pass))
+```
+
+
+There is no pathway enriched in this gene list
